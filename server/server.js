@@ -32,9 +32,9 @@ const auth = require("./auth");
 const socketManager = require("./server-socket");
 
 // Server configuration below
-// TODO change connection URL after setting up your team database
+// team database connection URL
 const mongoConnectionURL = "mongodb+srv://admin:horse123@cluster0.re8ep.mongodb.net/Cluster0?retryWrites=true&w=majority";
-// TODO change database name to the name you chose
+// database name
 const databaseName = "activiTag";
 
 // connect to mongodb
