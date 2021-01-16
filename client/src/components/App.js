@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import Board from "./pages/Board.js";
 
 import "../utilities.css";
 
@@ -59,6 +60,7 @@ class App extends Component {
         <div>
           HELLO this is a test
         </div>
+        <Board herds= {["herd", "herdY"]}/>
       </>
     );
   }
