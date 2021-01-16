@@ -1,5 +1,6 @@
 //Inside Board.js
 import React, { Component } from "react";
+import Tag from "./Tag.js"
 
 class Herd extends Component {
     constructor(props){
@@ -10,13 +11,21 @@ class Herd extends Component {
         };
     }
 
+    componentDidMount(){
+        this.setState({
+            tags: [<Tag />, <Tag />]
+        })
+    }
+
     render(){
         return(
             <div>
                 <h1>{this.state.name}</h1>
-                <div>
-                    {this.state.tags}
-                </div>
+                <ul>
+                    {this.state.tags.map((tag) => (
+                        <li>{tag}</li>
+                    ))}
+                </ul>
             </div>
         );
     }
