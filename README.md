@@ -10,9 +10,7 @@
 
 ## What you need to change
 
-- Change the Frontend CLIENT_ID for Google Auth (Skeleton.js) (we'll talk about it at the end of week 2)
-- Add a favicon to your website at the path client/dist/favicon.ico
-- Update this README file ;)
+- all done!
 
 ## Socket stuff
 Note: we'll be getting to this in lecture in week 2, so don't worry if you don't know it yet
