@@ -1,7 +1,8 @@
 
 /*css for login page*/
-h1 {
+.activiTag {
     color: black;
-    font-family: "Comfortaa", cursive;
+    font-family: 'Comfortaa', cursive;
     font-size: 70pt;
 }
+
