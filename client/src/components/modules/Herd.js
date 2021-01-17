@@ -1,6 +1,7 @@
 //Inside Board.js
 import React, { Component } from "react";
 import Tag from "./Tag.js"
+import { get } from "../../utilities";
 
 class Herd extends Component {
     constructor(props){
@@ -12,10 +13,18 @@ class Herd extends Component {
     }
 
     componentDidMount(){
-        this.setState({
-            tags: [<Tag />, <Tag />]
-        })
+        get("/api/tags", { parent: this.props._id }).then((tags) => {
+            this.setState({
+                tags: tags,
+            });
+        });
     }
+
+    addNewTag = (tagObj) => {
+        this.setState({
+            tags: this.state.tags.concat([tagObj]),
+        });
+    };
 
     render(){
         return(

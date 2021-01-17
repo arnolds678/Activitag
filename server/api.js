@@ -12,6 +12,9 @@ const express = require("express");
 // import models so we can interact with the database
 const User = require("./models/user");
 
+const Herd = require("./models/herd");
+const Tag = require("./models/tag");
+
 // import authentication library
 const auth = require("./auth");
 
@@ -44,4 +47,31 @@ router.all("*", (req, res) => {
   res.status(404).send({ msg: "API route not found" });
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+
+router.get("/herds", (req, res) => {
+  Herd.find({}).then((herds) => res.send(herds));
+});
+
+router.post("/herds", (req,res) => {
+  const newHerd = new Herd({
+    creator_id: req.user._id,
+    creator_name: req.user.name,
+    content: req.body.content,
+  });
+
+  newHerd.save().then((herd) => res.send(herd));
+})
+
+router.get("/tags", (req, res) => {
+  Tag.find({ parent: req.query.parent }).then((tags) => {
+    res.send(tags);
+  });
+});
+
+
+
+module.exports = router;
+>>>>>>> 0db68e924e3218b41fbe599b1ec72c687d21e166
