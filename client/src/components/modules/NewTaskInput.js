@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { post } from "../../utilities.js"
 
 
 class NewTaskInput extends Component {
@@ -41,7 +42,9 @@ class NewTaskInput extends Component {
                     Submit!
                 </button>
             </div>
-        )
+        );
     }
 }
+
+export default NewTaskInput;
 

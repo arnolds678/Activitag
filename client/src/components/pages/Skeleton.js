@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "../../utilities.css";
-import "./Skeleton.css";
+//import "./Skeleton.css";
 
 //google login
 const GOOGLE_CLIENT_ID = "326978703631-0f5u8bhqftmr3884ug1ar0o36pc12c1h.apps.googleusercontent.com";

@@ -4,9 +4,13 @@ import NewTaskInput from "./NewTaskInput.js";
 import { post } from "../../utilities.js"
 
 class NewHerd extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     addHerd = (value) => {
         const body = { content: value };
-        post("/api/herds", body).then((herd) => {
+        post("/api/herd", body).then((herd) => {
             this.props.addNewHerd(herd);
         });
     };
@@ -15,3 +19,5 @@ class NewHerd extends Component {
         return <NewTaskInput defaultText="New Herd" onSubmit={this.addHerd} />;
     }
 }
+
+export default NewHerd;

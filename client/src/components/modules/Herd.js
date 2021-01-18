@@ -7,7 +7,7 @@ class Herd extends Component {
     constructor(props){
         super(props);
         this.state={
-            name: "HerdName",
+            content: "HerdName",
             tags: ["tag1","tag2"],
         };
     }
@@ -29,7 +29,7 @@ class Herd extends Component {
     render(){
         return(
             <div>
-                <h1>{this.state.name}</h1>
+                <h1>{this.state.content}</h1>
                 <ul>
                     {this.state.tags.map((tag) => (
                         <li>{tag}</li>

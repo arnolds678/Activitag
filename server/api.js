@@ -35,11 +35,42 @@ router.get("/whoami", (req, res) => {
   res.send(req.user);
 });
 
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
   if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
+
+
+
+
+router.get("/herds", (req, res) => {
+  Herd.find({}).then((herds) => res.send(herds));
+});
+
+router.post("/herd", (req, res) => {
+  const newHerd = new Herd({
+    //creator_id: req.user._id,
+    //creator_name: req.user.name,
+    content: req.body.content,
+  });
+
+  newHerd.save().then((herd) => res.send(herd));
+});
+
+// router.get("/tags", (req, res) => {
+//   Tag.find({ parent: req.query.parent }).then((tags) => {
+//     res.send(tags);
+//   });
+// });
+
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
@@ -47,31 +78,5 @@ router.all("*", (req, res) => {
   res.status(404).send({ msg: "API route not found" });
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
-
-router.get("/herds", (req, res) => {
-  Herd.find({}).then((herds) => res.send(herds));
-});
-
-router.post("/herds", (req,res) => {
-  const newHerd = new Herd({
-    creator_id: req.user._id,
-    creator_name: req.user.name,
-    content: req.body.content,
-  });
-
-  newHerd.save().then((herd) => res.send(herd));
-})
-
-router.get("/tags", (req, res) => {
-  Tag.find({ parent: req.query.parent }).then((tags) => {
-    res.send(tags);
-  });
-});
-
-
 
 module.exports = router;
->>>>>>> 0db68e924e3218b41fbe599b1ec72c687d21e166
