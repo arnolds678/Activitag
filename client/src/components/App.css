@@ -2,3 +2,7 @@
     background-color: #35605A;
     
 }
+
+.crossed-line {
+    text-decoration: line-through;
+}

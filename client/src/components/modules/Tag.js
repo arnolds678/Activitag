@@ -8,7 +8,6 @@ class Tag extends Component {
         super(props);
         this.state = {
             value: value
-            tags: tags,
         };
     }
 
