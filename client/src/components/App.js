@@ -55,21 +55,25 @@ class App extends Component {
     return (
       <>
         <div className="app-container">
-          <Router>
-            {
-              <Login
-                path="/"
-                handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}
-                userId={this.state.userId}
-              />
-            }
-            <Board path="/Board" userId={this.state.userId}></Board>
-            <NotFound default />
-            {/*<Board path="/" userId={this.state.userId} />
-              <Profile path="/profile" />
-            <NotFound default />*/}
-          </Router>
+        <NavBar
+              userId={this.state.userId}
+        />
+          <div className="page-container">
+            <Router>
+              {
+                <Login
+                  path="/"
+                  handleLogin={this.handleLogin}
+                  handleLogout={this.handleLogout}
+                  userId={this.state.userId}
+                />
+              }
+              
+              <Board path="/Board" userId={this.state.userId}></Board>
+              <NotFound default />
+            </Router>
+          </div>
+          
         </div>
 
         {/* <Board herds= {["herd", "herdY"]}/> */}
