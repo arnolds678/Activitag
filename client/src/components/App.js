@@ -10,6 +10,8 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 
+import "./App.css"
+
 /**
  * Define the "App" component as a class.
  */
@@ -48,23 +50,19 @@ class App extends Component {
   render() {
     return (
       <>
-        <div>
-          HELLO this is a test
-        </div>
-        <Router>
-          
-          {/* <Skeleton
-            path="/"
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          /> */}
-          <Board path="/" userId={this.state.userId} />
-          <NotFound default />
+        <div className = "app-container">
+          <Router>
+            
+            {/* <Skeleton
+              path="/"
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
+              userId={this.state.userId}
+            /> */}
+            <Board path="/" userId={this.state.userId} />
+            <NotFound default />
 
-        </Router>
-        <div>
-          HELLO this is a test
+          </Router>
         </div>
         {/* <Board herds= {["herd", "herdY"]}/> */}
       </>
