@@ -16,13 +16,13 @@ class Herd extends Component {
         };
     }
 
-    // componentDidMount(){
-    //     get("/api/tags", { parent: this.props._id }).then((tags) => {
-    //         this.setState({
-    //             tags: tags,
-    //         });
-    //     });
-    // }
+    componentDidMount(){
+        get("/api/tags", { parent: this.props._id }).then((tags) => {
+            this.setState({
+                tags: tags,
+            });
+        });
+    }
 
     addNewTag = (tagObj) => {
         this.setState({

@@ -52,7 +52,7 @@ class App extends Component {
           HELLO this is a test
         </div>
         <Router>
-          <Login
+          
           {/* <Skeleton
             path="/"
             handleLogin={this.handleLogin}
