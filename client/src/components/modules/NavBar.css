@@ -3,12 +3,12 @@
 /*dimensions for navigation bar*/
 .NavBar-container {
     height: 100%;
-    width: 150px;
+    width: 100px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: var(--primary);
+    background-color: var(--tertiary);
     overflow-x: hidden;
     padding-top: var(--s);
     

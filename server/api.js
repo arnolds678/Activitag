@@ -49,9 +49,6 @@ router.post("/initsocket", (req, res) => {
 });
 
 
-module.exports = router;
-
-
 router.get("/herds", (req, res) => {
   Herd.find({}).then((herds) => res.send(herds));
 });

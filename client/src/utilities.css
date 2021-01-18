@@ -20,6 +20,9 @@
 :root {
   --primary: #35605A;
   --primary--dim: #31E981;
+  --secondary: #00120B;
+  --tertiary: #6B818C;
+  --quarternary: #D8E4FF;
   --highlight: #D8E4FF;
   --darkgrey: #d4d4d4;
   --medgrey: #e0e0e0;

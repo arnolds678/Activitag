@@ -26,7 +26,7 @@ class Tag extends Component {
     render(){
         return(
             <div className="complete-task">
-                <input onClick={event => this.handleTag(e, value=this.props.content)}/>
+                <input onClick={event => this.handleTag(e, value=this.props.content)}  value= {this.props.content}/>
 
                 <button onClick={() => deleteTag(value)}>x</button>
             </div>

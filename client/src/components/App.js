@@ -56,15 +56,6 @@ class App extends Component {
     return (
       <>
         <div className = "app-container">
-          <Router>
-            { <Login
-              path="/"
-              handleLogin={this.handleLogin}
-              handleLogout={this.handleLogout}
-              userId={this.state.userId}
-            /> }
-            {/*} <Board path="/" userId={this.state.userId} </div>/>*/}
-            <NotFound default />
           <NavBar
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
@@ -73,6 +64,13 @@ class App extends Component {
 
           <div className="page-container">
             <Router>
+
+              {/* <Login
+                path="/"
+                handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
+                userId={this.state.userId}
+              /> */}
               
               {/* <Skeleton
                 path="/"
