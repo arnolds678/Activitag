@@ -58,7 +58,7 @@ class Board extends Component {
         }
         return(
             <div className = "board-container">
-                <NewHerd addNewHerd={this.addNewHerd} />
+                <div className="newherd"><NewHerd addNewHerd={this.addNewHerd}/></div>
                 <div className = "herd-container">
                     {herdsList}
                 </div>
