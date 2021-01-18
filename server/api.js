@@ -47,9 +47,7 @@ router.all("*", (req, res) => {
   res.status(404).send({ msg: "API route not found" });
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
 
 router.get("/herds", (req, res) => {
   Herd.find({}).then((herds) => res.send(herds));
@@ -74,4 +72,3 @@ router.get("/tags", (req, res) => {
 
 
 module.exports = router;
->>>>>>> 0db68e924e3218b41fbe599b1ec72c687d21e166
