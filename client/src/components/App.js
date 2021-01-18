@@ -55,9 +55,7 @@ class App extends Component {
     return (
       <>
         <div className="app-container">
-        <NavBar
-              userId={this.state.userId}
-        />
+          <NavBar userId={this.state.userId} />
           <div className="page-container">
             <Router>
               {
@@ -68,12 +66,11 @@ class App extends Component {
                   userId={this.state.userId}
                 />
               }
-              
+
               <Board path="/Board" userId={this.state.userId}></Board>
               <NotFound default />
             </Router>
           </div>
-          
         </div>
 
         {/* <Board herds= {["herd", "herdY"]}/> */}
