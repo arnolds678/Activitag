@@ -1,4 +1,8 @@
 .app-container{
     background-color: #35605A;
-    
+    display:flex;
+}
+
+.page-container{
+    margin-left: 150px;
 }

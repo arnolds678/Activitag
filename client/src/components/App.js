@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import Board from "./pages/Board.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -51,18 +52,28 @@ class App extends Component {
     return (
       <>
         <div className = "app-container">
-          <Router>
-            
-            {/* <Skeleton
-              path="/"
-              handleLogin={this.handleLogin}
-              handleLogout={this.handleLogout}
-              userId={this.state.userId}
-            /> */}
-            <Board path="/" userId={this.state.userId} />
-            <NotFound default />
+          <NavBar
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+            userId={this.state.userId}
+          />
 
-          </Router>
+          <div className="page-container">
+            <Router>
+              
+              {/* <Skeleton
+                path="/"
+                handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
+                userId={this.state.userId}
+              /> */}
+              <Board path="/" userId={this.state.userId} />
+              <Profile path="/profile" />
+              <NotFound default />
+
+            </Router>
+          </div>
+          
         </div>
         {/* <Board herds= {["herd", "herdY"]}/> */}
       </>

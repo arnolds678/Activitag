@@ -26,7 +26,7 @@ class Tag extends Component {
         return(
             <div className="complete-task">
                 <input onClick={(e) => this.handleTag(e, tags)}
-                value={tags.tags}/>
+                value={this.props.content}/>
 
                 <button onClick={() => deleteTag(tags)}>x</button>
             </div>
