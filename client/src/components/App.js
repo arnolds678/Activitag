@@ -55,8 +55,8 @@ class App extends Component {
             handleLogout={this.handleLogout}
             userId={this.state.userId}
           /> */}
-          <NotFound default />
           <Board path="/" userId={this.state.userId} />
+          <NotFound default />
 
         </Router>
         <div>

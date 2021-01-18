@@ -3,16 +3,16 @@ import React, { Component } from "react";
 class Tag extends Component {
     constructor(props){
         super(props);
-        this.state={
-            content: "Be a horse",
-            completed: false,
-        }
     }
 
     render(){
         return(
-            <div>
-                {this.state.content} Completion: {this.state.completed.toString()}
+            <div className="Card-commentBody">
+                {/* <Link to={`/profile/${this.props.creator_id}`} className="u-link u-bold">
+                {this.props.creator_name}
+                </Link> */}
+                <p>{this.props.content}</p>
+                <p>Completion: False</p>
             </div>
         ) 
     }

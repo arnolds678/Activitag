@@ -65,11 +65,23 @@ router.post("/herd", (req, res) => {
   newHerd.save().then((herd) => res.send(herd));
 });
 
-// router.get("/tags", (req, res) => {
-//   Tag.find({ parent: req.query.parent }).then((tags) => {
-//     res.send(tags);
-//   });
-// });
+router.get("/tags", (req, res) => {
+  Tag.find({ parent: req.query.parent }).then((tags) => {
+    res.send(tags);
+  });
+});
+
+router.post("/tags", (req, res) => {
+  const newTag = new Tag({
+    //creator_id: req.user._id,
+    //creator_name: req.user.name,
+    parent: req.body.parent,
+    content: req.body.content,
+    //completed: ,
+  });
+
+  newTag.save().then((tag) => res.send(tag));
+});
 
 
 // anything else falls to this "not found" case

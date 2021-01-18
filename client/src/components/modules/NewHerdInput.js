@@ -4,9 +4,9 @@ import NewTaskInput from "./NewTaskInput.js";
 import { post } from "../../utilities.js"
 
 class NewHerd extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     addHerd = (value) => {
         const body = { content: value };

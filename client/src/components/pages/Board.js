@@ -13,11 +13,11 @@ class Board extends Component {
     }
 
     componentDidMount() {
-        document.title = "News Feed";
-        get("/api/herds").then((storyObjs) => {
-          let reversedStoryObjs = storyObjs.reverse();
-          reversedStoryObjs.map((storyObj) => {
-            this.setState({ herds: this.state.herds.concat([storyObj]) });
+        document.title = "Main Page";
+        get("/api/herds").then((herdObjs) => {
+          let reversedHerdObjs = herdObjs.reverse();
+          reversedHerdObjs.map((herdObj) => {
+            this.setState({ herds: this.state.herds.concat([herdObj]) });
           });
         });
       }
@@ -56,7 +56,7 @@ class Board extends Component {
         }
         return(
             <div>
-                {<NewHerd addNewHerd={this.addNewHerd} />}
+                <NewHerd addNewHerd={this.addNewHerd} />
                 {herdsList}
                 HELLO test 2!
             </div>
