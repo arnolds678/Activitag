@@ -4,6 +4,8 @@ import Herd from "../modules/Herd.js";
 import NewHerd from "../modules/NewHerdInput.js";
 import { get } from "../../utilities";
 
+import "./Board.css"
+
 class Board extends Component {
     constructor(props){
         super(props);
@@ -55,10 +57,11 @@ class Board extends Component {
             herdsList = <div>No Herds!</div>;
         }
         return(
-            <div>
+            <div className = "board-container">
                 <NewHerd addNewHerd={this.addNewHerd} />
-                {herdsList}
-                HELLO test 2!
+                <div className = "herd-container">
+                    {herdsList}
+                </div>
             </div>
         );
     }    

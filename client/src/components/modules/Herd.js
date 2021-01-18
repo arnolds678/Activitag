@@ -7,6 +7,8 @@ import { get } from "../../utilities";
 
 import { Link } from "@reach/router";
 
+import "./Herd.css"
+
 class Herd extends Component {
     constructor(props){
         super(props);
@@ -32,7 +34,7 @@ class Herd extends Component {
 
     render(){
         return(
-            <div>
+            <div className="herd">
                 <HerdHeader 
                     _id={this.props._id}
                     //creator_name={this.props.creator_name}
