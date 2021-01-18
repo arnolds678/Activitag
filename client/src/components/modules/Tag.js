@@ -1,34 +1,34 @@
 import React, { Component } from "react";
+import NewTag from "./NewTagInput";
 
-const tags = [ {tag: ""}]
+const value = {NewTag}
 
 class Tag extends Component {
     constructor(props){
         super(props);
         this.state = {
-            tags: tags
+            value: value
         };
     }
 
-    handleTag = (e, tags) => {
-        var tags = this.state.tags;
-        tags.strike(index, 1);
-        this.setState({ tags: tags});
+    handleTag = (e, value) => {
+        const element = event.target;
+        value[value].crossLine(value, 1);
+        this.setState({ value: value});
     };
 
-    deleteTag = (tags) => {
-        var tags = this.state.tags;
-        tags.splice(tags,1);
-        this.setState({ tags: tags});
+    deleteTag = (value) => {
+        var value = this.state.value;
+        value.splice(value, 1);
+        this.setState({ value: value});
     };
 
     render(){
         return(
             <div className="complete-task">
-                <input onClick={(e) => this.handleTag(e, tags)}
-                value={tags.tags}/>
+                <input onClick={event => this.handleTag(e, value=this.props.content)}/>
 
-                <button onClick={() => deleteTag(tags)}>x</button>
+                <button onClick={() => deleteTag(value)}>x</button>
             </div>
         ) 
     }
