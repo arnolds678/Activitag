@@ -12,7 +12,7 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities.js";
 
-import "./App.css"
+import "./App.css";
 
 /**
  * Define the "App" component as a class.
@@ -40,10 +40,9 @@ class App extends Component {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       this.setState({ userId: user._id });
-      post("/api/initsocket", { socketid: socket.id })
-        .then((res) => {
+      post("/api/initsocket", { socketid: socket.id }).then((res) => {
         navigate("/Board/");
-      })
+      });
     });
   };
 
@@ -55,37 +54,24 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className = "app-container">
-          <NavBar
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
-
-          <div className="page-container">
-            <Router>
-
-              {/* <Login
+        <div className="app-container">
+          <Router>
+            {
+              <Login
                 path="/"
                 handleLogin={this.handleLogin}
                 handleLogout={this.handleLogout}
                 userId={this.state.userId}
-              /> */}
-              
-              {/* <Skeleton
-                path="/"
-                handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}
-                userId={this.state.userId}
-              /> */}
-              <Board path="/" userId={this.state.userId} />
+              />
+            }
+            <Board path="/Board" userId={this.state.userId}></Board>
+            <NotFound default />
+            {/*<Board path="/" userId={this.state.userId} />
               <Profile path="/profile" />
-              <NotFound default />
-
-            </Router>
-          </div>
-          
+            <NotFound default />*/}
+          </Router>
         </div>
+
         {/* <Board herds= {["herd", "herdY"]}/> */}
       </>
     );
