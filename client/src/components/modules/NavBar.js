@@ -19,8 +19,8 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="NavBar-container">
-        <div className="NavBar-title u-inlineBlock">activiTag</div>
-        <div className="NavBar-linkContainer u-inlineBlock">
+        <div className="NavBar-title">activiTag</div>
+        <div className="NavBar-linkContainer">
           <Link to="/" className="NavBar-link">
             Home
           </Link>
@@ -29,9 +29,6 @@ class NavBar extends Component {
               Profile
             </Link>
           )}
-          <Link to="/chat/" className="NavBar-link">
-            Chat
-          </Link>
           {this.props.userId ? (
             <GoogleLogout
               clientId={GOOGLE_CLIENT_ID}

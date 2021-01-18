@@ -5,4 +5,9 @@
 
 .crossed-line {
     text-decoration: line-through;
+    display:flex;
+}
+
+.page-container{
+    margin-left: 150px;
 }

@@ -3,7 +3,7 @@
 /*dimensions for navigation bar*/
 .NavBar-container {
     height: 100%;
-    width: var(--l);
+    width: 150px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -11,6 +11,7 @@
     background-color: var(--primary);
     overflow-x: hidden;
     padding-top: var(--s);
+    
 }
 
 /*design for words in navigation bar*/
@@ -22,6 +23,9 @@
 /*design for links on navigation bar*/
 .NavBar-linkContainer {
     margin-top: var(--m);
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
 }
 
 /*when mouse hovers over link, should become underlined*/
