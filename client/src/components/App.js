@@ -68,6 +68,7 @@ class App extends Component {
               }
 
               <Board path="/Board" userId={this.state.userId}></Board>
+              <Profile path="/profile/:userId" />
               <NotFound default />
             </Router>
           </div>
