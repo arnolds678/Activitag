@@ -32,20 +32,21 @@ class Herd extends Component {
         });
     };
 
+
     render(){
         return(
             <div className="herd">
                 <HerdHeader 
                     _id={this.props._id}
-                    //creator_name={this.props.creator_name}
-                    //creator_id={this.props.creator_id}
+                    creator_name={this.props.creator_name}
+                    creator_id={this.props.creator_id}
                     content={this.props.content}
                 />
                 <TagBlock
                     herd={this.props}
                     tags={this.state.tags}
                     addNewTag={this.addNewTag}
-                    //userId={this.props.userId}
+                    userId={this.props.userId}
                 />
             </div>
 

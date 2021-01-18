@@ -53,10 +53,10 @@ router.get("/herds", (req, res) => {
   Herd.find({}).then((herds) => res.send(herds));
 });
 
-router.post("/herd", (req, res) => {
+router.post("/herd", auth.ensureLoggedIn, (req, res) => {
   const newHerd = new Herd({
-    //creator_id: req.user._id,
-    //creator_name: req.user.name,
+    creator_id: req.user._id,
+    creator_name: req.user.name,
     content: req.body.content,
   });
 
@@ -69,13 +69,13 @@ router.get("/tags", (req, res) => {
   });
 });
 
-router.post("/tags", (req, res) => {
+router.post("/tags", auth.ensureLoggedIn, (req, res) => {
   const newTag = new Tag({
-    //creator_id: req.user._id,
-    //creator_name: req.user.name,
+    creator_id: req.user._id,
+    creator_name: req.user.name,
     parent: req.body.parent,
     content: req.body.content,
-    //completed: ,
+    completed: req.body.completed,
   });
 
   newTag.save().then((tag) => res.send(tag));

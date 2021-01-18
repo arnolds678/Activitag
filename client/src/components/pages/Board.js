@@ -24,14 +24,6 @@ class Board extends Component {
         });
       }
 
-    // componentDidMount() {
-    //     // get("/api/herds").then((herdObjs) => {
-    //     //     herdObjs.map((herdObj) => {
-    //     //         this.setState({ herds: this.state.herds.concat([herdObj])});
-    //     //     });
-    //     // });
-    // }
-
     addNewHerd = (herdObj) => {
         this.setState({
             herds: [herdObj].concat(this.state.herds),
@@ -46,10 +38,10 @@ class Board extends Component {
                 <Herd 
                     key={`Card_${herdObj._id}`}
                     _id={herdObj._id}
-                    //creator_name={herdObj.creator_name}
-                    //creator_id={herdObj.creator_id}
+                    creator_name={herdObj.creator_name}
+                    creator_id={herdObj.creator_id}
                     content={herdObj.content}
-                    //userId={this.props.userId}
+                    userId={this.props.userId}
                 />
             ))
         }
