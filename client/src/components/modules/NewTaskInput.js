@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { post } from "../../utilities.js"
 
 
 class NewTaskInput extends Component {
@@ -41,7 +42,27 @@ class NewTaskInput extends Component {
                     Submit!
                 </button>
             </div>
-        )
+        );
     }
 }
+
+// class NewHerd extends Component {
+//     // constructor(props) {
+//     //     super(props);
+//     // }
+
+//     addHerd = (value) => {
+//         const body = { content: value };
+//         post("/api/herd", body).then((herd) => {
+//             this.props.addNewHerd(herd);
+//         });
+//     };
+
+//     render() {
+//         return <NewTaskInput defaultText="New Herd" onSubmit={this.addHerd} />;
+//     }
+// }
+
+
+export default NewTaskInput;
 

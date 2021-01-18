@@ -53,17 +53,20 @@ class App extends Component {
         </div>
         <Router>
           <Login
+          {/* <Skeleton
             path="/"
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}
-          />
+          /> */}
+          <Board path="/" userId={this.state.userId} />
           <NotFound default />
+
         </Router>
         <div>
           HELLO this is a test
         </div>
-        <Board herds= {["herd", "herdY"]}/>
+        {/* <Board herds= {["herd", "herdY"]}/> */}
       </>
     );
   }

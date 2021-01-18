@@ -9,14 +9,15 @@ class NewTag extends Component {
     }
 
     addTag = (value) => {
-        const body = { parent: this.props.storyId, content: value };
+        const body = { parent: this.props.herdId, content: value };
         post("/api/tags", body).then((tag) => {
             this.props.addNewTag(tag);
-        })
-    }
+        });
+    };
 
     render(){
-        return <NewPostInput defaultText="New Tag" onSubmit={this.addTag} />;
+        return <NewTaskInput defaultText="New Tag" onSubmit={this.addTag} />;
     }
 }
 
+export default NewTag;
