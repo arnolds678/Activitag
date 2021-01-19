@@ -25,6 +25,8 @@ const session = require("express-session"); // library that stores info about ea
 const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
 
+require('dotenv').config();
+
 const api = require("./api");
 const auth = require("./auth");
 
@@ -33,7 +35,7 @@ const socketManager = require("./server-socket");
 
 // Server configuration below
 // team database connection URL
-const mongoConnectionURL = "mongodb+srv://admin:horse123@cluster0.re8ep.mongodb.net/Cluster0?retryWrites=true&w=majority";
+const mongoConnectionURL = process.env.ATLAS_SRV;
 // database name
 const databaseName = "activiTag";
 
@@ -57,7 +59,7 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: "session-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -95,7 +97,7 @@ app.use((err, req, res, next) => {
 });
 
 // hardcode port to 3000 for now
-const port = 3000;
+const port = process.env.PORT || 3000;
 const server = http.Server(app);
 socketManager.init(server);
 
