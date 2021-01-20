@@ -9,7 +9,7 @@ class NewTag extends Component {
     }
 
     addTag = (value) => {
-        const body = { parent: this.props.herdId, content: value, completed: false };
+        const body = { parent: this.props.herdId, content: value, };
         post("/api/tags", body).then((tag) => {
             this.props.addNewTag(tag);
         });

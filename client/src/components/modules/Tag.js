@@ -13,9 +13,6 @@ class Tag extends Component {
         this.state={
             completed: false,
         }
-        // this.state = {
-        //     value: value
-        // };
     }
 
     // handleTag = (e, value) => {
@@ -33,8 +30,16 @@ class Tag extends Component {
     completeTask = (event) =>{
         this.setState({
             completed: true,
-        });
-        post("/api/tags", {completed: true});
+        })
+
+        const body = {
+            content: this.props.content,
+            creator_name: this.props.creator_name,
+            creator_id: this.props.creator_id,
+            userId: this.props.userId,
+            parent: this.props.parent,
+        }
+        post("/api/achievements", body);
     };
 
     render(){

@@ -15,7 +15,7 @@ class Profile extends Component {
       user: undefined,
       //hard code for now
       followedHerds: [],
-      achievements: ["be a horse", "pass a class", "eat nuggets"],
+      achievements: [],
     };
   }
 
@@ -28,11 +28,29 @@ class Profile extends Component {
         this.setState({followedHerds: this.state.followedHerds.concat([herdObj])});
       });
     });
+
+    get("/api/achievements").then((achievementObjs) => {
+      achievementObjs.map((achievementObj) => {
+        this.setState({achievements: this.state.achievements.concat([achievementObj])});
+      });
+    });
+
+    // get("/api/achievements").then((achievementObjs) => {
+    //   achievementObjs.map((achievementObj) => {
+    //     this.setState({achievements: this.state.achievements.concat([achievementObj])});
+    //   });
+    // });
   }
 
   followNewHerd = (herdObj) => {
     this.setState({
         followedHerds: [herdObj].concat(this.state.followedHerds),
+    });
+  };
+
+  achieve = (achievementObj) => {
+    this.setState({
+      achievements: [achievementObj].concat(this.state.achievements),
     });
   };
 

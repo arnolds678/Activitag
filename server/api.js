@@ -15,6 +15,7 @@ const User = require("./models/user");
 const Herd = require("./models/herd");
 const Tag = require("./models/tag");
 const FollowedHerd = require("./models/followedHerd");
+const Achievement = require("./models/achievement");
 
 // import authentication library
 const auth = require("./auth");
@@ -76,7 +77,6 @@ router.post("/tags", auth.ensureLoggedIn, (req, res) => {
     creator_name: req.user.name,
     parent: req.body.parent,
     content: req.body.content,
-    completed: req.body.completed,
   });
 
   newTag.save().then((tag) => res.send(tag));
@@ -92,9 +92,34 @@ router.post("/followedHerds", auth.ensureLoggedIn, (req, res) => {
     creator_name: req.body.name,
     content: req.body.content,
     userId: req.body.userId,
-  })
+  });
+
+  // if (FollowedHerd.find({
+  //   creator_id: req.body._id,
+  //   creator_name: req.body.name,
+  //   content: req.body.content,
+  //   //userId: req.body.userId,
+  // }).length === 0) {
+  //   newFollowedHerd.save().then((herds) => res.send(herds));
+  // }
 
   newFollowedHerd.save().then((herds) => res.send(herds));
+});
+
+router.get("/achievements", auth.ensureLoggedIn, (req, res) => {
+  Achievement.find({userId: req.user._id}).then((achievements) => res.send(achievements));
+});
+
+router.post("/achievements", auth.ensureLoggedIn, (req, res) => {
+  const newAchievement = new Achievement({
+    userId: req.body.userId,
+    creator_id: req.body.creator_id,
+    creator_name: req.body.creator_name,
+    parent: req.body.parent,
+    content: req.body.content,
+  });
+
+  newAchievement.save().then((achievement) => res.send(achievement));
 });
 
 
