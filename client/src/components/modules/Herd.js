@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import HerdHeader from "./HerdHeader.js"
 import TagBlock from "./TagBlock.js"
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import { Link } from "@reach/router";
 
@@ -32,6 +32,17 @@ class Herd extends Component {
         });
     };
 
+    followHerd = (event) => {
+        const body = {
+            content: this.props.content,
+            creator_name: this.props.creator_name,
+            creator_id: this.props.creator_id,
+            userId: this.props.userId,
+        }
+
+        post("/api/followedHerds", body);
+    };
+
 
     render(){
         return(
@@ -42,6 +53,13 @@ class Herd extends Component {
                     creator_id={this.props.creator_id}
                     content={this.props.content}
                 />
+                <button
+                    type="button"
+                    value="follow"
+                    onClick={this.followHerd}
+                >
+                    follow!
+                </button>
                 <TagBlock
                     herd={this.props}
                     tags={this.state.tags}

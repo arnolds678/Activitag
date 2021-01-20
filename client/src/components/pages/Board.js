@@ -36,7 +36,7 @@ class Board extends Component {
         if (hasHerds){
             herdsList = this.state.herds.map((herdObj) => (
                 <Herd 
-                    key={`Card_${herdObj._id}`}
+                    key={`Herd_${herdObj._id}`}
                     _id={herdObj._id}
                     creator_name={herdObj.creator_name}
                     creator_id={herdObj.creator_id}

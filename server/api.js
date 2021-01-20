@@ -14,6 +14,7 @@ const User = require("./models/user");
 
 const Herd = require("./models/herd");
 const Tag = require("./models/tag");
+const FollowedHerd = require("./models/followedHerd");
 
 // import authentication library
 const auth = require("./auth");
@@ -79,6 +80,21 @@ router.post("/tags", auth.ensureLoggedIn, (req, res) => {
   });
 
   newTag.save().then((tag) => res.send(tag));
+});
+
+router.get("/followedHerds", auth.ensureLoggedIn, (req, res) => {
+  FollowedHerd.find({userId: req.user._id}).then((herds) => res.send(herds));
+});
+
+router.post("/followedHerds", auth.ensureLoggedIn, (req, res) => {
+  const newFollowedHerd = new FollowedHerd({
+    creator_id: req.body._id,
+    creator_name: req.body.name,
+    content: req.body.content,
+    userId: req.body.userId,
+  })
+
+  newFollowedHerd.save().then((herds) => res.send(herds));
 });
 
 
