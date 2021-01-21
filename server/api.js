@@ -87,27 +87,25 @@ router.get("/followedHerds", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/followedHerds", auth.ensureLoggedIn, (req, res) => {
-  const newFollowedHerd = new FollowedHerd({
-    creator_id: req.body.creator_id,
-    creator_name: req.body.name,
-    content: req.body.content,
-    userId: req.body.userId,
-  });
 
-  if (!FollowedHerd.exists({
-    // creator_id: req.body.creator_id,
-    // creator_name: req.body.name,
+  FollowedHerd.findOne({
+    creator_id: req.body.creator_id,
+    creator_name: req.body.creator_name,
     content: req.body.content,
     userId: req.body.userId
-  })) {
-    newFollowedHerd.save().then((herds) => res.send(herds));
-  }
-    
-  // FollowedHerd.deleteOne({
-
-  // })
-
-  // newFollowedHerd.save().then((herds) => res.send(herds));
+  }).then((obj) => {
+    if (obj === null){
+      const newFollowedHerd = new FollowedHerd({
+        creator_id: req.body.creator_id,
+        creator_name: req.body.creator_name,
+        content: req.body.content,
+        userId: req.body.userId,
+      });
+  
+      newFollowedHerd.save().then((herds) => res.send(herds));
+    }
+  });
+  
 });
 
 router.get("/achievements", auth.ensureLoggedIn, (req, res) => {
@@ -119,15 +117,38 @@ router.get("/achievements", auth.ensureLoggedIn, (req, res) => {
 // });
 
 router.post("/achievements", auth.ensureLoggedIn, (req, res) => {
-  const newAchievement = new Achievement({
+  Achievement.findOne({
     userId: req.body.userId,
     creator_id: req.body.creator_id,
     creator_name: req.body.creator_name,
     parent: req.body.parent,
-    content: req.body.content,
+    content: req.body.content
+  }).then((obj) => {
+    if (obj === null){
+      const newAchievement = new Achievement({
+        userId: req.body.userId,
+        creator_id: req.body.creator_id,
+        creator_name: req.body.creator_name,
+        parent: req.body.parent,
+        content: req.body.content,
+      });
+    
+      newAchievement.save().then((achievement) => res.send(achievement));
+    }
   });
 
-  newAchievement.save().then((achievement) => res.send(achievement));
+
+
+
+  // const newAchievement = new Achievement({
+  //   userId: req.body.userId,
+  //   creator_id: req.body.creator_id,
+  //   creator_name: req.body.creator_name,
+  //   parent: req.body.parent,
+  //   content: req.body.content,
+  // });
+
+  // newAchievement.save().then((achievement) => res.send(achievement));
 });
 
 
