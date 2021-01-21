@@ -17,10 +17,12 @@ class Achievements extends Component {
             achievementList = this.props.achievements.map((achievementObj) => (
                 <SingleAchievement 
                     content={achievementObj.content}
-                    key={`Tag_${achievementObj._id}`}
+                    key={`Achievement_${achievementObj._id}`}
                     _id={achievementObj._id}
                     creator_name={achievementObj.creator_name}
                     creator_id={achievementObj.creator_id}
+                    userId={achievementObj.userId}
+                    parent={achievementObj.parent}
                 />
             ))
         }

@@ -29,7 +29,7 @@ class Profile extends Component {
       });
     });
 
-    get("/api/achievements").then((achievementObjs) => {
+    get("/api/achievements", {userId: this.props.userId}).then((achievementObjs) => {
       achievementObjs.map((achievementObj) => {
         this.setState({achievements: this.state.achievements.concat([achievementObj])});
       });

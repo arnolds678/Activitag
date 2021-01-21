@@ -88,27 +88,35 @@ router.get("/followedHerds", auth.ensureLoggedIn, (req, res) => {
 
 router.post("/followedHerds", auth.ensureLoggedIn, (req, res) => {
   const newFollowedHerd = new FollowedHerd({
-    creator_id: req.body._id,
+    creator_id: req.body.creator_id,
     creator_name: req.body.name,
     content: req.body.content,
     userId: req.body.userId,
   });
 
-  // if (FollowedHerd.find({
-  //   creator_id: req.body._id,
-  //   creator_name: req.body.name,
-  //   content: req.body.content,
-  //   //userId: req.body.userId,
-  // }).length === 0) {
-  //   newFollowedHerd.save().then((herds) => res.send(herds));
-  // }
+  if (!FollowedHerd.exists({
+    // creator_id: req.body.creator_id,
+    // creator_name: req.body.name,
+    content: req.body.content,
+    userId: req.body.userId
+  })) {
+    newFollowedHerd.save().then((herds) => res.send(herds));
+  }
+    
+  // FollowedHerd.deleteOne({
 
-  newFollowedHerd.save().then((herds) => res.send(herds));
+  // })
+
+  // newFollowedHerd.save().then((herds) => res.send(herds));
 });
 
 router.get("/achievements", auth.ensureLoggedIn, (req, res) => {
   Achievement.find({userId: req.user._id}).then((achievements) => res.send(achievements));
 });
+
+// router.get("/achievements", auth.ensureLoggedIn, (req, res) => {
+//   Achievement.find({userId: req.user._id}).then((achievements) => res.send(achievements));
+// });
 
 router.post("/achievements", auth.ensureLoggedIn, (req, res) => {
   const newAchievement = new Achievement({

@@ -8,12 +8,15 @@ class FollowedHerd extends Component {
 
     render(){
         return(
-            <HerdHeader 
-            _id={this.props._id}
-            creator_name={this.props.creator_name}
-            creator_id={this.props.creator_id}
-            content={this.props.content}
-            />
+            <div>
+                {this.props.content}
+            </div>
+            // <HerdHeader 
+            // _id={this.props._id}
+            // creator_name={this.props.creator_name}
+            // creator_id={this.props.creator_id}
+            // content={this.props.content}
+            // />
         )
     }
 }

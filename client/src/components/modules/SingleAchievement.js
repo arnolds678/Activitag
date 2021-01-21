@@ -8,7 +8,19 @@ class SingleAchievement extends Component {
     render(){
         return(
             <div>
+                <div>
                 {this.props.content}
+                </div>
+     
+                {/* <div>
+                these are userIds:
+                {this.props.userId}
+                </div>
+                
+                <div>
+                    parent: {this.props.parent}
+                </div> */}
+
             </div>
         )
     }

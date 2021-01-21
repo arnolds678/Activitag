@@ -28,18 +28,20 @@ class Tag extends Component {
     // };
 
     completeTask = (event) =>{
+        const body = {
+            userId: this.props.userId,
+            creator_id: this.props.creator_id,
+            creator_name: this.props.creator_name,
+            parent: this.props.parent,
+            content: this.props.content,
+        }
+        post("/api/achievements", body);
+
         this.setState({
             completed: true,
         })
 
-        const body = {
-            content: this.props.content,
-            creator_name: this.props.creator_name,
-            creator_id: this.props.creator_id,
-            userId: this.props.userId,
-            parent: this.props.parent,
-        }
-        post("/api/achievements", body);
+        
     };
 
     render(){
