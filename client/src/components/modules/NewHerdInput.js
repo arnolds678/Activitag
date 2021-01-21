@@ -11,7 +11,13 @@ class NewHerd extends Component {
     addHerd = (value) => {
         const body = { content: value };
         post("/api/herd", body).then((herd) => {
-            this.props.addNewHerd(herd);
+            if(herd.content === "herd already exists"){
+                alert("The herd you are trying to add already exists!");
+            }
+            else{
+                this.props.addNewHerd(herd);
+            }
+            
         });
     };
 

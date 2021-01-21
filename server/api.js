@@ -56,13 +56,31 @@ router.get("/herds", (req, res) => {
 });
 
 router.post("/herd", auth.ensureLoggedIn, (req, res) => {
-  const newHerd = new Herd({
-    creator_id: req.user._id,
-    creator_name: req.user.name,
-    content: req.body.content,
-  });
+  Herd.findOne({
+    content: req.body.content
+  }).then((obj) => {
+    if(obj === null){
+      const newHerd = new Herd({
+        creator_id: req.user._id,
+        creator_name: req.user.name,
+        content: req.body.content,
+      });
+    
+      newHerd.save().then((herd) => res.send(herd));
 
-  newHerd.save().then((herd) => res.send(herd));
+    }
+    else{
+      res.send({content: "herd already exists"});
+    }
+  })
+
+  // const newHerd = new Herd({
+  //   creator_id: req.user._id,
+  //   creator_name: req.user.name,
+  //   content: req.body.content,
+  // });
+
+  // newHerd.save().then((herd) => res.send(herd));
 });
 
 router.get("/tags", (req, res) => {
@@ -72,14 +90,34 @@ router.get("/tags", (req, res) => {
 });
 
 router.post("/tags", auth.ensureLoggedIn, (req, res) => {
-  const newTag = new Tag({
-    creator_id: req.user._id,
-    creator_name: req.user.name,
+  Tag.findOne({
     parent: req.body.parent,
     content: req.body.content,
-  });
+  }).then((obj) => {
+    if(obj === null){
+      const newTag = new Tag({
+        creator_id: req.user._id,
+        creator_name: req.user.name,
+        parent: req.body.parent,
+        content: req.body.content,
+      });
+    
+      newTag.save().then((tag) => res.send(tag));
 
-  newTag.save().then((tag) => res.send(tag));
+    }
+    else{
+      res.send({content: "tag already exists"});
+    }
+  })
+
+  // const newTag = new Tag({
+  //   creator_id: req.user._id,
+  //   creator_name: req.user.name,
+  //   parent: req.body.parent,
+  //   content: req.body.content,
+  // });
+
+  // newTag.save().then((tag) => res.send(tag));
 });
 
 router.get("/followedHerds", auth.ensureLoggedIn, (req, res) => {
@@ -103,6 +141,9 @@ router.post("/followedHerds", auth.ensureLoggedIn, (req, res) => {
       });
   
       newFollowedHerd.save().then((herds) => res.send(herds));
+    }
+    else{
+      res.send({content: "already following"});
     }
   });
   
@@ -134,6 +175,10 @@ router.post("/achievements", auth.ensureLoggedIn, (req, res) => {
       });
     
       newAchievement.save().then((achievement) => res.send(achievement));
+    }
+    else{
+      console.log("already achieved");
+      res.send({content: "already achieved"});
     }
   });
 

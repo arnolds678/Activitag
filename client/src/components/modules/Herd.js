@@ -40,7 +40,11 @@ class Herd extends Component {
             userId: this.props.userId,
         }
 
-        post("/api/followedHerds", body);
+        post("/api/followedHerds", body).then((msg) => {
+            if(msg.content === "already following"){
+                alert("You already follow this herd!");
+            }
+        });
     };
 
 

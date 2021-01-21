@@ -11,7 +11,12 @@ class NewTag extends Component {
     addTag = (value) => {
         const body = { parent: this.props.herdId, content: value, };
         post("/api/tags", body).then((tag) => {
-            this.props.addNewTag(tag);
+            if(tag.content === "tag already exists"){
+                alert("The tag you are trying to add already exists!");
+            }
+            else{
+                this.props.addNewTag(tag);
+            }
         });
     };
 

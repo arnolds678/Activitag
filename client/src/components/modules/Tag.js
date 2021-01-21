@@ -35,7 +35,11 @@ class Tag extends Component {
             parent: this.props.parent,
             content: this.props.content,
         }
-        post("/api/achievements", body);
+        post("/api/achievements", body).then((msg) => {
+            if(msg.content === "already achieved"){
+                alert("You have already achieved this task!");
+            }
+        });
 
         this.setState({
             completed: true,
