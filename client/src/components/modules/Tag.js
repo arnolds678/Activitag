@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import {post} from "../../utilities.js"
+import {get, post} from "../../utilities.js"
 
 import "./Tag.css"
 // import NewTag from "./NewTagInput";
@@ -47,6 +47,16 @@ class Tag extends Component {
 
         
     };
+
+    componentDidMount(){
+        get("/api/achievements", {userId: this.props.userId}).then((achievementObjs) => {
+            achievementObjs.map((achievementObj) => {
+              if(achievementObj.content === this.props.content && achievementObj.parent === this.props.parent){
+                  this.setState({completed: true});
+              }
+            });
+        });
+    }
 
     render(){
         let completion = null;

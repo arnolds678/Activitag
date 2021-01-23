@@ -11,10 +11,12 @@ class HerdHeader extends Component {
     render() {
       return (
         <div className="herd-header">
-          {/* <Link to={`/profile/${this.props.creator_id}`} className="u-link u-bold">
-            {this.props.creator_name}
-          </Link> */}
-          <h3>{this.props.content}</h3>
+          <h3>
+          <Link to={`/herd/${this.props._id}`} state={{herdId: this.props._id}}>
+            {this.props.content}
+          </Link>
+          {/* {this.props.content} */}
+          </h3>
         </div>
       );
     }

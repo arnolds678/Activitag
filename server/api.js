@@ -50,6 +50,12 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
+router.get("/herd", (req, res) => {
+  Herd.findById(req.query._id).then((herd) => {
+    res.send(herd);
+  });
+});
+
 
 router.get("/herds", (req, res) => {
   Herd.find({}).then((herds) => res.send(herds));

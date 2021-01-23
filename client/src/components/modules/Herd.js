@@ -15,6 +15,7 @@ class Herd extends Component {
         this.state={
             // content: "HerdName",
             tags: [],
+            following: false,
         };
     }
 
@@ -22,6 +23,14 @@ class Herd extends Component {
         get("/api/tags", { parent: this.props._id }).then((tags) => {
             this.setState({
                 tags: tags,
+            });
+        });
+
+        get("/api/followedHerds").then((herdObjs) =>{
+            herdObjs.map((herdObj) => {
+              if(herdObj.content === this.props.content){
+                  this.setState({following: true});
+              }
             });
         });
     }
@@ -49,6 +58,20 @@ class Herd extends Component {
 
 
     render(){
+        let followStatus = null;
+        if (this.state.following){
+            followStatus = <div>Following!</div>
+        }
+        else{
+            followStatus = 
+            <button
+                type="button"
+                value="follow"
+                onClick={this.followHerd}
+            >
+                follow!
+            </button>
+        }
         return(
             <div className="herd">
                 <HerdHeader 
@@ -57,13 +80,7 @@ class Herd extends Component {
                     creator_id={this.props.creator_id}
                     content={this.props.content}
                 />
-                <button
-                    type="button"
-                    value="follow"
-                    onClick={this.followHerd}
-                >
-                    follow!
-                </button>
+                {followStatus}
                 <TagBlock
                     herd={this.props}
                     tags={this.state.tags}
