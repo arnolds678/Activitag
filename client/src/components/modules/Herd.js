@@ -54,6 +54,10 @@ class Herd extends Component {
                 alert("You already follow this herd!");
             }
         });
+
+        this.setState({
+            following: true,
+        })
     };
 
 
