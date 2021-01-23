@@ -11,3 +11,14 @@
 .completed{
     background-color:green;
 }
+
+.tag-creator{
+    font-size: 10px;
+    opacity: 70%;
+}
+
+.indiv-tag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

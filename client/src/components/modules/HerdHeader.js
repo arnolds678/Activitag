@@ -10,7 +10,7 @@ class HerdHeader extends Component {
   
     render() {
       return (
-        <div className="herd-header">
+        <div className={this.props.className}>
           <h3>
           <Link to={`/herd/${this.props._id}`} state={{herdId: this.props._id}}>
             {this.props.content}

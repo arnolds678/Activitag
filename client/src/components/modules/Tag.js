@@ -74,6 +74,9 @@ class Tag extends Component {
             <div className="tag">
                 <div className = "indiv-tag">
                     {completion}
+                    <div className = "tag-creator">
+                        Created By: {this.props.creator_name}
+                    </div>
                 </div>
                 <button
                     type='button'
@@ -83,15 +86,6 @@ class Tag extends Component {
                 >
                 </button>
             </div>
-
-
-
-
-            // <div className="complete-task">
-            //     <input onClick={event => this.handleTag(e, value=this.props.content)}  value= {this.props.content}/>
-
-            //     <button onClick={() => deleteTag(value)}>x</button>
-            // </div>
         ) 
     }
 }

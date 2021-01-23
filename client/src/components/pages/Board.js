@@ -42,6 +42,7 @@ class Board extends Component {
                     creator_id={herdObj.creator_id}
                     content={herdObj.content}
                     userId={this.props.userId}
+                    className="herd"
                 />
             ))
         }

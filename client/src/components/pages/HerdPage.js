@@ -30,6 +30,9 @@ class HerdPage extends Component {
                     creator_id={this.state.herd.creator_id}
                     content={this.state.herd.content}
                     userId={this.props.userId}
+                    className="herdPage"
+                    headerClassName="pageHeader"
+                    tagBlockClassName="pageContent"
                 />
             </div>
         )

@@ -73,20 +73,27 @@ class Herd extends Component {
             </button>
         }
         return(
-            <div className="herd">
+            <div className={this.props.className}>
+                <div className="header">
                 <HerdHeader 
                     _id={this.props._id}
                     creator_name={this.props.creator_name}
                     creator_id={this.props.creator_id}
                     content={this.props.content}
+                    className={this.props.headerClassName}
                 />
-                {followStatus}
+                <div className="creator">Created by: {this.props.creator_name}</div>
+                    {followStatus}
+                </div>
+                <div>
                 <TagBlock
                     herd={this.props}
                     tags={this.state.tags}
                     addNewTag={this.addNewTag}
                     userId={this.props.userId}
+                    className={this.props.tagBlockClassname}
                 />
+                </div>
             </div>
 
 
