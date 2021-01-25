@@ -1,5 +1,7 @@
 .app-container {
   background-color: #35605a;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .crossed-line {
