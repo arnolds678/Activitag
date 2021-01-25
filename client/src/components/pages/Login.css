@@ -2,10 +2,10 @@
 
 body {
   background-color: #35605a;
-  animation: mymove 20s infinite;
+  /*animation: mymove 20s infinite;*/
 }
 
-@keyframes mymove {
+/*@keyframes mymove {
   0% {
     background-color: #35605a;
     left: 0px;
@@ -21,7 +21,7 @@ body {
     left: 0px;
     top: 0px;
   }
-}
+}*/
 
 .activiTag {
   display: flex;
