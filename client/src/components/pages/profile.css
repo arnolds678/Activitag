@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   border-style: none;
+  font-size: 25px;
 }
 
 .HerdList {
@@ -10,7 +11,8 @@
 }
 
 .Profile-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  flex-grow: 2;
 }
