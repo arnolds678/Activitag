@@ -20,7 +20,11 @@ class NewHerd extends Component {
   };
 
   render() {
-    return <NewTaskInput defaultText="add new herd" onSubmit={this.addHerd} />;
+    return (
+      <div className="add-new-herd">
+        <NewTaskInput defaultText="add new herd" onSubmit={this.addHerd} />
+      </div>
+    );
   }
 }
 

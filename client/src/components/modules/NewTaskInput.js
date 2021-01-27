@@ -34,9 +34,11 @@ class NewTaskInput extends Component {
           onChange={this.handleChange}
           className="add-new-herd"
         />
-        <button type="submit" value="Submit" onClick={this.handleSubmit} className="submit-button">
-          submit!
-        </button>
+        <div className="submit-button">
+          <button type="submit" value="Submit" onClick={this.handleSubmit}>
+            submit!
+          </button>
+        </div>
       </div>
     );
   }

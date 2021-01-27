@@ -1,15 +1,12 @@
-.add-new-herd {
-  font-family: "Hind Vadodara", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.submit-button {
+  background-color: #00120b;
+  border: none;
+  color: white;
 }
 
-.submit-button {
-  background-color: white;
+.add-new-herd {
   border: none;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  color: white;
+  background-color: #00120b;
+  text-decoration: underline;
 }
